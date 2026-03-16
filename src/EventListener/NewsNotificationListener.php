@@ -50,7 +50,7 @@ class NewsNotificationListener
         $host = $this->requestStack->getCurrentRequest()?->getHost() ?? 'localhost';
         $sender = Config::get('mstudio_news_notification_sender') ?: ('no-reply@'.$host);
 
-        $username = 'Unbekannter Benutzer';
+        $username = $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_unknown_user'] ?? 'Unknown user';
         $backendUser = BackendUser::getInstance();
 
         if ($backendUser->id) {
