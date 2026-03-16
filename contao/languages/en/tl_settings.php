@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 // Fields
+$GLOBALS['TL_LANG']['tl_settings']['mstudio_news_notification_enabled'] = [
+    'Enable notifications',
+    'Send an e-mail notification whenever a news article with a teaser is saved.',
+];
+
 $GLOBALS['TL_LANG']['tl_settings']['mstudio_news_notification_sender'] = [
     'Sender address',
     'This e-mail address is used as the sender of the notification. If empty, no-reply@<hostname> will be used.',

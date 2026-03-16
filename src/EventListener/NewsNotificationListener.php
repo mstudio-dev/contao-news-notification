@@ -35,6 +35,10 @@ class NewsNotificationListener
             return;
         }
 
+        if (!Config::get('mstudio_news_notification_enabled')) {
+            return;
+        }
+
         if (empty($dc->activeRecord->teaser)) {
             return;
         }

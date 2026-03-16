@@ -6,10 +6,17 @@ use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
 PaletteManipulator::create()
     ->addLegend('mstudio_news_notification_legend', 'chmod_legend', PaletteManipulator::POSITION_BEFORE)
+    ->addField('mstudio_news_notification_enabled', 'mstudio_news_notification_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('mstudio_news_notification_sender', 'mstudio_news_notification_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('mstudio_news_notification_recipient', 'mstudio_news_notification_legend', PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('default', 'tl_settings')
 ;
+
+$GLOBALS['TL_DCA']['tl_settings']['fields']['mstudio_news_notification_enabled'] = [
+    'inputType' => 'checkbox',
+    'eval'      => ['tl_class' => 'w50 m12'],
+    'sql'       => ['type' => 'boolean', 'default' => false],
+];
 
 $GLOBALS['TL_DCA']['tl_settings']['fields']['mstudio_news_notification_sender'] = [
     'inputType' => 'text',

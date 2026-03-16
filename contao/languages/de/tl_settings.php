@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 // Felder
+$GLOBALS['TL_LANG']['tl_settings']['mstudio_news_notification_enabled'] = [
+    'Benachrichtigungen aktivieren',
+    'Sendet eine E-Mail-Benachrichtigung, wenn ein News-Artikel mit Teaser gespeichert wird.',
+];
+
 $GLOBALS['TL_LANG']['tl_settings']['mstudio_news_notification_sender'] = [
     'Absenderadresse',
     'Diese E-Mail-Adresse wird als Absender der Benachrichtigung verwendet. Wenn leer, wird no-reply@<hostname> verwendet.',
