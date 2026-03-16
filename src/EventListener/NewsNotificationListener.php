@@ -35,6 +35,10 @@ class NewsNotificationListener
             return;
         }
 
+        if (empty($dc->activeRecord->teaser)) {
+            return;
+        }
+
         $recipient = Config::get('mstudio_news_notification_recipient');
 
         if (!$recipient) {
