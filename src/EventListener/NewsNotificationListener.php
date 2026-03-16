@@ -50,7 +50,7 @@ class NewsNotificationListener
         $host = $this->requestStack->getCurrentRequest()?->getHost() ?? 'localhost';
         $sender = Config::get('mstudio_news_notification_sender') ?: ('no-reply@'.$host);
 
-        $username = $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_unknown_user'] ?? 'Unknown user';
+        $username = $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_unknown_user'];
         $backendUser = BackendUser::getInstance();
 
         if ($backendUser->id) {
@@ -58,7 +58,7 @@ class NewsNotificationListener
         }
 
         $body = sprintf(
-            $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_email_body'] ?? "Ein News-Artikel wurde gespeichert.\n\nTitel: %s\nAlias: %s\nID: %s\nZeitpunkt: %s\nBenutzer: %s",
+            $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_email_body'],
             $dc->activeRecord->headline,
             $dc->activeRecord->alias,
             $dc->activeRecord->id,
@@ -66,7 +66,7 @@ class NewsNotificationListener
             $username,
         );
 
-        $subject = $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_email_subject'] ?? 'News-Artikel gespeichert';
+        $subject = $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_email_subject'];
 
         $email = (new Email())
             ->from($sender)
