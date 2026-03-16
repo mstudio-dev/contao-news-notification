@@ -19,6 +19,6 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['mstudio_news_notification_sender'] 
 
 $GLOBALS['TL_DCA']['tl_settings']['fields']['mstudio_news_notification_recipient'] = [
     'inputType' => 'text',
-    'eval'      => ['rgxp' => 'email', 'maxlength' => 255, 'tl_class' => 'w50'],
+    'eval'      => ['rgxp' => 'email', 'maxlength' => 255, 'tl_class' => 'w50', 'mandatory' => true],
     'sql'       => ['type' => 'string', 'length' => 255, 'default' => ''],
 ];
