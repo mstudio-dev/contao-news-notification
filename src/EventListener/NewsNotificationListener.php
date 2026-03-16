@@ -8,7 +8,7 @@ use Contao\BackendUser;
 use Contao\Config;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\CoreBundle\Framework\ContaoFramework;
-use Contao\CoreBundle\Mailer\ContaoMailer;
+use Symfony\Component\Mailer\MailerInterface;
 use Contao\DataContainer;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -19,7 +19,7 @@ class NewsNotificationListener
 {
     public function __construct(
         private readonly ContaoFramework $framework,
-        private readonly ContaoMailer $mailer,
+        private readonly MailerInterface $mailer,
         private readonly RequestStack $requestStack,
         private readonly LoggerInterface $logger,
     ) {
