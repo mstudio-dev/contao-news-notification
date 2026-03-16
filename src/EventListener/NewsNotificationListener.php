@@ -30,7 +30,7 @@ class NewsNotificationListener
         $this->framework->initialize();
 
         if (!$dc->activeRecord) {
-            $this->logger->warning('NewsNotification: Kein activeRecord vorhanden.');
+            $this->logger->warning('NewsNotification: No activeRecord available.');
 
             return;
         }
@@ -42,7 +42,7 @@ class NewsNotificationListener
         $recipient = Config::get('mstudio_news_notification_recipient');
 
         if (!$recipient) {
-            $this->logger->warning('NewsNotification: Kein Empfänger konfiguriert – Versand abgebrochen.');
+            $this->logger->warning('NewsNotification: No recipient configured – aborting.');
 
             return;
         }
@@ -76,9 +76,9 @@ class NewsNotificationListener
 
         try {
             $this->mailer->send($email);
-            $this->logger->info(sprintf('NewsNotification: E-Mail erfolgreich an "%s" versendet.', $recipient));
+            $this->logger->info(sprintf('NewsNotification: Email sent successfully to "%s".', $recipient));
         } catch (\Throwable $e) {
-            $this->logger->error(sprintf('NewsNotification: Versand fehlgeschlagen – %s', $e->getMessage()));
+            $this->logger->error(sprintf('NewsNotification: Failed to send email – %s', $e->getMessage()));
         }
     }
 }
