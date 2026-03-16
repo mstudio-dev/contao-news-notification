@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Mstudio\ContaoNewsNotificationBundle\:
+        resource: '../src/'
+        exclude: '../src/{ContaoManager,ContaoNewsNotificationBundle.php}'
