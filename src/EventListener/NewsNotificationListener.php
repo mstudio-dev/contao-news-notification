@@ -58,18 +58,20 @@ class NewsNotificationListener
         }
 
         $body = sprintf(
-            "Ein News-Artikel wurde gespeichert.\n\nTitel: %s\nAlias: %s\nID: %s\nZeitpunkt: %s\nBenutzer: %s",
+            $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_email_body'] ?? "Ein News-Artikel wurde gespeichert.\n\nTitel: %s\nAlias: %s\nID: %s\nZeitpunkt: %s\nBenutzer: %s",
             $dc->activeRecord->headline,
             $dc->activeRecord->alias,
             $dc->activeRecord->id,
-            date('d.m.Y H:i'),
+            date((string) Config::get('datimFormat')),
             $username,
         );
+
+        $subject = $GLOBALS['TL_LANG']['MSC']['mstudio_news_notification_email_subject'] ?? 'News-Artikel gespeichert';
 
         $email = (new Email())
             ->from($sender)
             ->to($recipient)
-            ->subject('News-Artikel gespeichert')
+            ->subject($subject)
             ->text($body);
 
         try {
